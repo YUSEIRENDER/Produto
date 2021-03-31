@@ -5,40 +5,31 @@ public class ProdutoDemo
     
     public static void main(String[] args) 
     {
+        
+        Produto produto[] = new Produto[5];
+        LeitorTeclado leitor = new LeitorTeclado();
+        
         Scanner entrada = new Scanner(System.in);
-        
-        //declaração
-        
-        LeitorTeclado vet = new LeitorTeclado(5);
-        
-        //declaração de variaveis da classe produto
-        String descricao;
-        double preco;
-        int saldo;
-        
-        for(int i = 0; i < 5; i++)
+
+        for(int i = 0; i < produto.length; i++)
         {
-            
-            //declaração de variavel temporaria
-            Produto p;
+            String descricao;
+            double preco;
+            int saldo;
             
             System.out.println("Digite a descrição do produto:");
-            descricao = entrada.next();
+            descricao = entrada.nextLine();
             System.out.println("Digite o preço do produto:");
             preco = entrada.nextDouble();
-            System.out.println("Digite o valor do saldo:");
-            saldo = entrada.nextInt();   
+            System.out.println("Digite o seu saldo:");
+            saldo =  entrada.nextInt();
             
-            p = new Produto(descricao, preco, saldo);
+            produto[i] = new Produto(descricao, preco, saldo);
             
-            vet.adicionarProduto(p);
+            produto[i].lerTeclado();
             
-        }
-        
-        System.out.println(vet.mostrarProduto());
+        }    
            
     }
-    
-                           
+                               
 }
-
